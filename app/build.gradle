@@ -54,4 +54,7 @@ dependencies {
     // room
     implementation "androidx.room:room-ktx:2.5.1"
     kapt "androidx.room:room-compiler:2.5.1"
+
+    // cute notes
+    implementation 'io.github.yahiaangelo.markdownedittext:markdownedittext:1.1.3'
 }

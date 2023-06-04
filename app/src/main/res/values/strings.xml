@@ -35,4 +35,5 @@
     <string name="album">Альбом</string>
     <string name="info">Информация</string>
     <string name="table">Таблица</string>
+    <string name="note">Note</string>
 </resources>
