@@ -2,6 +2,7 @@
     <string name="app_name">Designer Planner</string>
 
     <string name="phone">Enter your Phone</string>
+    <string name="password">Enter your Password</string>
     <string name="name">Enter your Full Name</string>
     <string name="create_passwd">Create a Password</string>
     <string name="conf_passwd">Confirm your Password</string>
@@ -22,4 +23,5 @@
     <string name="archive">Архив</string>
     <string name="deleted">Удаленное</string>
     <string name="template">Добавить шаблон</string>
+    <string name="greeting_reg_text">Let’s help you meet up your task</string>
 </resources>
