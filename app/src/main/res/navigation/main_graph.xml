@@ -8,7 +8,7 @@
         android:id="@+id/startFrameFragment2"
         android:name="com.pelepolya.designerplanner.presentation.fragments.auth.StartFrameFragment"
         android:label="StartFrameFragment"
-        tools:layout="@layout/fragment_start_frame" >
+        tools:layout="@layout/fragment_start_frame">
         <action
             android:id="@+id/action_startFrameFragment2_to_signInFragment2"
             app:destination="@id/signInFragment2" />
@@ -28,7 +28,7 @@
         android:id="@+id/menuFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.menus.MenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_projectsFragment2"
             app:destination="@id/projectsFragment2" />
@@ -66,7 +66,7 @@
         android:id="@+id/adminSignInFragment2"
         android:name="com.pelepolya.designerplanner.presentation.fragments.auth.AdminSignInFragment"
         android:label="AdminSignInFragment"
-        tools:layout="@layout/fragment_admin_sign_in" >
+        tools:layout="@layout/fragment_admin_sign_in">
         <action
             android:id="@+id/action_adminSignInFragment2_to_adminMenuFragment2"
             app:destination="@id/adminMenuFragment2" />
@@ -87,6 +87,8 @@
         tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment2_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@+id/main_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

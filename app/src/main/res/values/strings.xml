@@ -30,4 +30,5 @@
     <string name="phone_error">Некорректный формат номера</string>
     <string name="empty_field_error">Поле не может быть пустым</string>
     <string name="password_confirm_error">Пароли не совпадают</string>
+    <string name="invalid_error">Телефон или пароль неверны</string>
 </resources>
