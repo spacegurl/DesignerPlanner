@@ -4,18 +4,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ProjectPagerAdapter(fragmentActivity: FragmentActivity) :
+class DealerPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> ProjectNotesFragment()
-            1 -> ProjectCostListFragment()
-            2 -> ProjectAlbumFragment()
-            else -> ProjectNotesFragment()
+            0 -> DealerInfoFragment()
+            1 -> DealerTableFragment()
+            else -> DealerInfoFragment()
         }
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 }

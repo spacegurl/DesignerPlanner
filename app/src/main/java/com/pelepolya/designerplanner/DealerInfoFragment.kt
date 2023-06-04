@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class ProjectCostListFragment : Fragment() {
+class DealerInfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_project_cost_list, container, false)
+        return inflater.inflate(R.layout.fragment_dealer_info, container, false)
     }
 }

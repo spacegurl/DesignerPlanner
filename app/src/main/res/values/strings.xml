@@ -26,4 +26,9 @@
     <string name="log_out">Log out</string>
     <string name="prompt_add_project">добавить проект</string>
     <string name="greeting_reg_text">Let’s help you meet up your task</string>
+    <string name="notes">Заметки</string>
+    <string name="project_cost_list">Смета</string>
+    <string name="album">Альбом</string>
+    <string name="info">Информация</string>
+    <string name="table">Таблица</string>
 </resources>
