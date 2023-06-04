@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
@@ -49,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/circles" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputName"
+            android:id="@+id/textInputPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -93,7 +94,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputName">
+            app:layout_constraintTop_toBottomOf="@+id/textInputPhone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/enterPasswd"
@@ -118,31 +119,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
             app:layout_constraintVertical_bias="1" />
 
-        <TextView
-            android:id="@+id/hint_signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:text="@string/dont_account_signup"
-            android:textColor="@color/green"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <Button
             android:id="@+id/button_signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:backgroundTint="@color/admin"
             android:paddingHorizontal="95dp"
             android:paddingVertical="10dp"
             android:text="@string/signin"
             android:textAllCaps="false"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/hint_signup"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

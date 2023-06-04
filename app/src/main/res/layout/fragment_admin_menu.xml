@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/iconLogOut"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
@@ -32,9 +32,9 @@
             android:text="@string/log_out"
             android:textColor="@color/admin"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintEnd_toEndOf="@+id/iconLogOut"
+            app:layout_constraintStart_toStartOf="@+id/iconLogOut"
+            app:layout_constraintTop_toBottomOf="@+id/iconLogOut" />
 
         <ImageView
             android:id="@+id/circles"
