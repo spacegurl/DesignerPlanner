@@ -6,22 +6,23 @@
     android:background="@color/background"
     android:fillViewport="true">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:contentDescription="@null"
             android:src="@drawable/admin_account"
-            android:contentDescription="@null" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/logout"
@@ -30,8 +31,9 @@
             android:text="@string/log_out"
             android:textColor="@color/admin"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/circles" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <ImageView
             android:id="@+id/circles"
@@ -53,9 +55,12 @@
             android:layout_gravity="center"
             android:letterSpacing="0.15"
             android:text="@string/welcome_onboard"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circles" />
 
 
         <ImageView
@@ -65,8 +70,11 @@
             android:layout_below="@+id/text1"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:src="@drawable/admin_onboard_pic"
-            android:contentDescription="@null"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/PROJECTS_BUTTON"
@@ -81,13 +89,14 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/picture">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
+                android:paddingHorizontal="14dp"
                 android:text="@string/deleted"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -107,13 +116,14 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/PROJECTS_BUTTON">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
+                android:paddingHorizontal="14dp"
                 android:text="@string/template"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -134,19 +144,20 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/VENDORS_BUTTON">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
+                android:paddingHorizontal="14dp"
                 android:text="Что-то ещё"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
         </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

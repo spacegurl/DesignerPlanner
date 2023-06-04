@@ -6,7 +6,7 @@
     android:background="@color/background"
     android:fillViewport="true">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,12 +17,12 @@
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:contentDescription="@null"
             android:src="@drawable/account"
-            android:contentDescription="@null" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/circles"
@@ -30,24 +30,22 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:contentDescription="@null"
             android:src="@drawable/circle_design"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@null"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="-254dp"
-            android:layout_marginEnd="357dp"
             android:layout_toEndOf="@+id/circles"
             android:text="@string/log_out"
             android:textColor="@color/green"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/circles"
+            app:layout_constraintEnd_toEndOf="@+id/account"
+            app:layout_constraintStart_toStartOf="@+id/account"
             app:layout_constraintTop_toBottomOf="@+id/account" />
 
         <TextView
@@ -59,9 +57,12 @@
             android:layout_gravity="center"
             android:letterSpacing="0.15"
             android:text="@string/welcome_onboard"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circles" />
 
 
         <ImageView
@@ -71,9 +72,12 @@
             android:layout_below="@+id/text1"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null"
             android:src="@drawable/menu_board_with_notes"
-            android:contentDescription="@null"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/PROJECTS_BUTTON"
@@ -82,20 +86,20 @@
             android:layout_below="@id/picture"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="26dp"
-            android:layout_marginTop="24dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/picture">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="14dp"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
                 android:text="@string/projects"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -115,13 +119,14 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/PROJECTS_BUTTON">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="14dp"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
                 android:text="@string/vendors"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -142,13 +147,14 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/VENDORS_BUTTON">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="14dp"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
                 android:text="@string/cost_list"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -168,18 +174,19 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/COST_LIST_BUTTON">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="14dp"
                 android:paddingVertical="18dp"
-                android:paddingStart="14dp"
                 android:text="@string/archive"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
         </androidx.cardview.widget.CardView>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
