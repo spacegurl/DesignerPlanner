@@ -10,14 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="247dp"
             android:layout_height="287dp"
-            android:layout_marginStart="32dp"
             android:contentDescription="@null"
-            android:src="@drawable/admin_picture"
+            android:src="@drawable/sign_in_welcome_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
-            android:src="@drawable/admin_circle_design"
+            android:src="@drawable/circle_design"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +40,7 @@
             android:letterSpacing="0.05"
             android:text="@string/welcome_back"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/admin"
+            android:backgroundTint="@color/green"
             android:paddingHorizontal="95dp"
             android:paddingVertical="10dp"
             android:text="@string/signin"
