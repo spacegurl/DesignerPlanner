@@ -22,4 +22,6 @@
     <string name="archive">Архив</string>
     <string name="deleted">Удаленное</string>
     <string name="template">Добавить шаблон</string>
+    <string name="log_out">Log out</string>
+    <string name="prompt_add_project">добавить проект</string>
 </resources>
