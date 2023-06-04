@@ -12,7 +12,6 @@
 
 
         <ImageView
-            android:id="@+id/account"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
@@ -21,8 +20,18 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:src="@drawable/account"
+            android:src="@drawable/admin_account"
             android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out"
+            android:textColor="@color/admin"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/circles" />
 
         <ImageView
             android:id="@+id/circles"
@@ -30,25 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/circle_design"
+            android:src="@drawable/admin_circle_design"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@null"/>
-
-        <TextView
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="-254dp"
-            android:layout_marginEnd="357dp"
-            android:layout_toEndOf="@+id/circles"
-            android:text="@string/log_out"
-            android:textColor="@color/green"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/circles"
-            app:layout_constraintTop_toBottomOf="@+id/account" />
 
         <TextView
             android:id="@+id/text1"
@@ -67,12 +61,11 @@
         <ImageView
             android:id="@+id/picture"
             android:layout_width="256dp"
-            android:layout_height="162dp"
+            android:layout_height="270dp"
             android:layout_below="@+id/text1"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/menu_board_with_notes"
+            android:src="@drawable/admin_onboard_pic"
             android:contentDescription="@null"/>
 
         <androidx.cardview.widget.CardView
@@ -82,7 +75,6 @@
             android:layout_below="@id/picture"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="26dp"
-            android:layout_marginTop="24dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -96,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
                 android:paddingStart="14dp"
-                android:text="@string/projects"
+                android:text="@string/deleted"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -122,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
                 android:paddingStart="14dp"
-                android:text="@string/vendors"
+                android:text="@string/template"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -149,37 +141,12 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="18dp"
                 android:paddingStart="14dp"
-                android:text="@string/cost_list"
+                android:text="Что-то ещё"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/ARCHIVE_BUTTON"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/COST_LIST_BUTTON"
-            android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="26dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="18dp"
-                android:paddingStart="14dp"
-                android:text="@string/archive"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 </ScrollView>
