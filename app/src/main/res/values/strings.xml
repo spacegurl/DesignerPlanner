@@ -26,4 +26,8 @@
     <string name="log_out">Log out</string>
     <string name="prompt_add_project">добавить проект</string>
     <string name="greeting_reg_text">Let’s help you meet up your task</string>
+
+    <string name="phone_error">Некорректный формат номера</string>
+    <string name="empty_field_error">Поле не может быть пустым</string>
+    <string name="password_confirm_error">Пароли не совпадают</string>
 </resources>
