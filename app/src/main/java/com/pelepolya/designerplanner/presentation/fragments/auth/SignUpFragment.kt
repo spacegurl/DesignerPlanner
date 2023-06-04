@@ -49,6 +49,10 @@ class SignUpFragment : Fragment() {
                     view.findNavController().navigate(action)
                 }
             }
+            hintSignin.setOnClickListener {
+                val action = SignUpFragmentDirections.actionSignUpFragment2ToSignInFragment2()
+                view.findNavController().navigate(action)
+            }
         }
 
     }

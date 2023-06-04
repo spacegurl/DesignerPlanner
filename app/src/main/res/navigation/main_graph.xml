@@ -80,7 +80,8 @@
         tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment2_to_signInFragment2"
-            app:destination="@id/signInFragment2" />
+            app:destination="@id/signInFragment2"
+            app:popUpTo="@id/startFrameFragment2" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment2"
@@ -92,5 +93,8 @@
             app:destination="@id/menuFragment"
             app:popUpTo="@+id/main_graph"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInFragment2_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
     </fragment>
 </navigation>

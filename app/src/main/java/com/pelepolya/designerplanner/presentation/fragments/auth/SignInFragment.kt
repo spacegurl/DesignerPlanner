@@ -66,6 +66,10 @@ class SignInFragment : Fragment() {
                     }
                 }
             }
+            hintSignup.setOnClickListener {
+                val action = SignInFragmentDirections.actionSignInFragment2ToSignUpFragment2()
+                view.findNavController().navigate(action)
+            }
         }
     }
 
