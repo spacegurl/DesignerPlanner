@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Designer Planner</string>
+
+    <string name="phone">Enter your Phone</string>
+    <string name="password">Enter your Password</string>
+    <string name="name">Enter your Full Name</string>
+    <string name="create_passwd">Create a Password</string>
+    <string name="conf_passwd">Confirm your Password</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="getstarted">Get Started</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="admin_acc">Admin Account</string>
+    <string name="dont_account_signup">Don\'t have an account? Sign up</string>
+    <string name="dont_account_signin">Already have an account? Sign in</string>
+    <string name="get_started">Get things started with \n Designer Planner</string>
+    <string name="admin_log_in">Admin Log In</string>
+    <string name="welcome_onboard">Welcome Onboard!</string>
+    <string name="projects">Проекты</string>
+    <string name="vendors">Поставщики</string>
+    <string name="cost_list">Смета</string>
+    <string name="archive">Архив</string>
+    <string name="deleted">Удаленное</string>
+    <string name="template">Добавить шаблон</string>
+    <string name="log_out">Log out</string>
+    <string name="prompt_add_project">добавить проект</string>
+    <string name="greeting_reg_text">Let’s help you meet up your task</string>
 </resources>
