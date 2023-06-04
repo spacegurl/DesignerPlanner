@@ -1,4 +1,4 @@
-package com.pelepolya.designerplanner.presentation.fragments.menus.options
+package com.pelepolya.designerplanner.presentation.fragments.options
 
 import androidx.fragment.app.Fragment
 

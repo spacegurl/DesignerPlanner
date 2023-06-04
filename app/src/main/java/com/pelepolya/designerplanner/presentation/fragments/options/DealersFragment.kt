@@ -1,15 +1,15 @@
-package com.pelepolya.designerplanner.presentation.fragments.menus.options
+package com.pelepolya.designerplanner.presentation.fragments.options
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pelepolya.designerplanner.databinding.FragmentCostListBinding
+import com.pelepolya.designerplanner.databinding.FragmentDealersBinding
 
-class CostListFragment : Fragment() {
+class DealersFragment : Fragment() {
 
-    private var _binding: FragmentCostListBinding? = null
+    private var _binding: FragmentDealersBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class CostListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCostListBinding.inflate(inflater, container, false)
+        _binding = FragmentDealersBinding.inflate(inflater, container, false)
         return binding.root
     }
 

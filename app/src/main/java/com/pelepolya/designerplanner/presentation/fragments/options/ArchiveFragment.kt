@@ -1,15 +1,15 @@
-package com.pelepolya.designerplanner.presentation.fragments.menus.options
+package com.pelepolya.designerplanner.presentation.fragments.options
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pelepolya.designerplanner.databinding.FragmentDealersBinding
+import com.pelepolya.designerplanner.databinding.FragmentArchiveBinding
 
-class DealersFragment : Fragment() {
+class ArchiveFragment : Fragment() {
 
-    private var _binding: FragmentDealersBinding? = null
+    private var _binding: FragmentArchiveBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class DealersFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDealersBinding.inflate(inflater, container, false)
+        _binding = FragmentArchiveBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,5 +25,4 @@ class DealersFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
