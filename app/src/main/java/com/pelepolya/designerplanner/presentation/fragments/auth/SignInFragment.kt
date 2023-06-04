@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.pelepolya.designerplanner.R
+import com.pelepolya.designerplanner.data.db.models.UserRoles
 import com.pelepolya.designerplanner.databinding.FragmentSignInBinding
 import com.pelepolya.designerplanner.domain.entity.SignInUser
 import com.pelepolya.designerplanner.presentation.viewmodel.auth.SignInViewModel
@@ -49,6 +50,10 @@ class SignInFragment : Fragment() {
                             AUTH_SESSION,
                             enterPhone.text.toString()
                         )
+                        editor.putString(
+                            AUTH_ROLE,
+                            UserRoles.USER.name
+                        )
                         editor.apply()
 
                         val action = SignInFragmentDirections.actionSignInFragment2ToMenuFragment()
@@ -72,6 +77,7 @@ class SignInFragment : Fragment() {
     companion object {
 
         const val AUTH_SESSION = "auth"
+        const val AUTH_ROLE = "role"
     }
 
 }

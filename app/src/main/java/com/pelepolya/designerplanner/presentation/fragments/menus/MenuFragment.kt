@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pelepolya.designerplanner.data.db.models.UserRoles
 import com.pelepolya.designerplanner.databinding.FragmentMenuBinding
 import com.pelepolya.designerplanner.presentation.MainActivity
 import com.pelepolya.designerplanner.presentation.fragments.auth.SignInFragment
@@ -47,6 +48,10 @@ class MenuFragment : Fragment() {
         editor.putString(
             SignInFragment.AUTH_SESSION,
             ""
+        )
+        editor.putString(
+            SignInFragment.AUTH_ROLE,
+            UserRoles.NONE.name
         )
         editor.apply()
 

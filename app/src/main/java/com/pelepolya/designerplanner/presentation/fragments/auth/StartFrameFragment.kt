@@ -32,6 +32,10 @@ class StartFrameFragment : Fragment() {
             val action = StartFrameFragmentDirections.actionStartFrameFragment2ToSignUpFragment2()
             view.findNavController().navigate(action)
         }
+        binding.adminLogIn.setOnClickListener {
+            val action = StartFrameFragmentDirections.actionStartFrameFragment2ToAdminSignInFragment2()
+            view.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {

@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import com.pelepolya.designerplanner.data.db.DesignerPlannerDataBase
 import com.pelepolya.designerplanner.data.db.mapper.UserMapper
+import com.pelepolya.designerplanner.data.db.models.User
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.SignInUser
 import com.pelepolya.designerplanner.domain.entity.SignUpUser
 import com.pelepolya.designerplanner.domain.repository.Repository
+import kotlin.math.sign
 
 class RepositoryImpl(
     private val context: Context
@@ -28,7 +30,7 @@ class RepositoryImpl(
     }
 
     override fun adminSignInUseCase(signInUser: SignInUser): LiveData<Boolean> {
-        TODO("Not yet implemented")
+        return userDao.checkAdminSignInValid(signInUser.phone, signInUser.password)
     }
 
     override fun logOutUseCase(phone: String) {
