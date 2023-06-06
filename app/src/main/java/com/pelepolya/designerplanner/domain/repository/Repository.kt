@@ -31,4 +31,6 @@ interface Repository {
     fun deleteArchiveUseCase(id: Int)
 
     fun getArchiveListUseCase(): LiveData<List<ProjectNote>>
+
+    fun getAdminProjectsListUseCase(): LiveData<List<ProjectNote>>
 }

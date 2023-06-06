@@ -6,18 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.pelepolya.designerplanner.data.db.dao.ArchiveDao
+import com.pelepolya.designerplanner.data.db.dao.ProjectAdminDao
 import com.pelepolya.designerplanner.data.db.dao.ProjectDao
 import com.pelepolya.designerplanner.data.db.dao.UserDao
-import com.pelepolya.designerplanner.data.db.models.Archive
-import com.pelepolya.designerplanner.data.db.models.Project
-import com.pelepolya.designerplanner.data.db.models.User
-import com.pelepolya.designerplanner.data.db.models.UserRoles
+import com.pelepolya.designerplanner.data.db.models.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [User::class, Project::class, Archive::class],
+    entities = [User::class, Project::class, Archive::class, ProjectAdmin::class],
     version = 1,
     exportSchema = true
 )
@@ -25,8 +23,9 @@ abstract class DesignerPlannerDataBase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun projectDao(): ProjectDao
-
     abstract fun archiveDao(): ArchiveDao
+    abstract fun projectAdminDao(): ProjectAdminDao
+
 
     companion object {
 

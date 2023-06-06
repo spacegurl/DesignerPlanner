@@ -23,7 +23,11 @@
         android:id="@+id/adminMenuFragment2"
         android:name="com.pelepolya.designerplanner.presentation.fragments.menus.AdminMenuFragment"
         android:label="AdminMenuFragment"
-        tools:layout="@layout/fragment_admin_menu" />
+        tools:layout="@layout/fragment_admin_menu" >
+        <action
+            android:id="@+id/action_adminMenuFragment2_to_adminProjectsFragment"
+            app:destination="@id/adminProjectsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.menus.MenuFragment"
@@ -116,5 +120,13 @@
         <argument
             android:name="projectName"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminProjectsFragment"
+        android:name="com.pelepolya.designerplanner.presentation.fragments.options.AdminProjectsFragment"
+        android:label="AdminProjectsFragment" >
+        <action
+            android:id="@+id/action_adminProjectsFragment_to_projectTabLayoutFragment"
+            app:destination="@id/projectTabLayoutFragment" />
     </fragment>
 </navigation>

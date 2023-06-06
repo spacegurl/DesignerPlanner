@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.pelepolya.designerplanner.data.db.models.Archive
+import com.pelepolya.designerplanner.data.db.models.Project
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 
 @Dao
@@ -18,4 +19,7 @@ interface ArchiveDao {
 
     @Query("DELETE FROM Archive WHERE id = :id")
     fun deleteArchive(id: Int)
+
+    @Query("SELECT * FROM Archive WHERE id = :id")
+    fun getArchiveById(id: Int): Archive
 }

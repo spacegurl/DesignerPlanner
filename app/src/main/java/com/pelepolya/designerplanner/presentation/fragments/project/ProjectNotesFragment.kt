@@ -70,14 +70,20 @@ class ProjectNotesFragment : Fragment() {
         }
         binding.NoteContent.setOnFocusChangeListener { v, hasFocus ->
             if (!hasFocus) {
-                viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
+                if (::note.isInitialized) {
+                    viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
+                }
             }
         }
     }
 
     override fun onPause() {
         super.onPause()
-        viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
+        if (::note.isInitialized) {
+            viewModel.saveProjectNote(
+                note.id, binding.NoteContent.text.toString()
+            )
+        }
     }
 
     private fun parseArgs() {

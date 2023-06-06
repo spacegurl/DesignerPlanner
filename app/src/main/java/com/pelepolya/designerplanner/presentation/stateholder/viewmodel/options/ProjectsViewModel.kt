@@ -13,11 +13,11 @@ class ProjectsViewModel(application: Application) : AndroidViewModel(application
 
     val projectListLiveData = GetProjectListUseCase(repository).invoke()
     val archiveListLiveData = GetArchiveListUseCase(repository).invoke()
+    val adminProjectsListLiveData = GetAdminProjectsListUseCase(repository).invoke()
 
     private val addProjectUseCase = AddProjectUseCase(repository)
     private val deleteProjectUseCase = DeleteProjectUseCase(repository)
     private val deleteArchiveUseCase = DeleteArchiveUseCase(repository)
-
 
     fun deleteProject(id: Int) {
         deleteProjectUseCase.invoke(id)

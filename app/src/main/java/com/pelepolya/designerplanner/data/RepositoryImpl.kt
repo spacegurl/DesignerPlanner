@@ -7,6 +7,7 @@ import com.pelepolya.designerplanner.data.db.DesignerPlannerDataBase
 import com.pelepolya.designerplanner.data.db.mapper.ProjectMapper
 import com.pelepolya.designerplanner.data.db.mapper.UserMapper
 import com.pelepolya.designerplanner.data.db.models.Archive
+import com.pelepolya.designerplanner.data.db.models.ProjectAdmin
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.SignInUser
 import com.pelepolya.designerplanner.domain.entity.SignUpUser
@@ -20,6 +21,7 @@ class RepositoryImpl(
     private val userDao = db.userDao()
     private val projectDao = db.projectDao()
     private val archiveDao = db.archiveDao()
+    private val projectAdminDao = db.projectAdminDao()
 
 
     override fun signInUseCase(signInUser: SignInUser): LiveData<Boolean> {
@@ -49,24 +51,39 @@ class RepositoryImpl(
     override fun deleteProjectUseCase(id: Int) {
         db.queryExecutor.execute {
             val item = projectDao.getProjectById(id)
-            archiveDao.inertArchive(Archive(
-                item.id,
-                item.title,
-                item.body,
-                item.status
-            ))
+            archiveDao.inertArchive(
+                Archive(
+                    item.id,
+                    item.title,
+                    item.body,
+                    item.status
+                )
+            )
             projectDao.deleteProject(id)
         }
     }
 
     override fun deleteArchiveUseCase(id: Int) {
         db.queryExecutor.execute {
+            val item = archiveDao.getArchiveById(id)
+            projectAdminDao.inertProject(
+                ProjectAdmin(
+                    item.id,
+                    item.title,
+                    item.body,
+                    item.status
+                )
+            )
             archiveDao.deleteArchive(id)
         }
     }
 
     override fun getArchiveListUseCase(): LiveData<List<ProjectNote>> {
         return db.archiveDao().getArchiveList()
+    }
+
+    override fun getAdminProjectsListUseCase(): LiveData<List<ProjectNote>> {
+        return db.projectAdminDao().getProjectList()
     }
 
     override fun loadProjectNoteUseCase(id: Int): LiveData<String> {
