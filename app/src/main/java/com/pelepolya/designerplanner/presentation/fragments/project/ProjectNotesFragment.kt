@@ -57,9 +57,11 @@ class ProjectNotesFragment : Fragment() {
         binding.NoteContent.setStylesBar(binding.BottomBar)
 
         viewModel.projectListLiveData.observe(viewLifecycleOwner) {
-            note = it[projectPosition]
-            if (::note.isInitialized) {
-                viewModel.loadProjectNote()
+            if (projectPosition < it.size) {
+                note = it[projectPosition]
+                if (::note.isInitialized) {
+                    viewModel.loadProjectNote()
+                }
             }
         }
 
