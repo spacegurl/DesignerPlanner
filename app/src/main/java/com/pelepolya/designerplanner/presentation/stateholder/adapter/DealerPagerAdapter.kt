@@ -1,8 +1,10 @@
-package com.pelepolya.designerplanner
+package com.pelepolya.designerplanner.presentation.stateholder.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.pelepolya.designerplanner.presentation.fragments.dealer.DealerInfoFragment
+import com.pelepolya.designerplanner.presentation.fragments.dealer.DealerTableFragment
 
 class DealerPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {

@@ -13,7 +13,7 @@ import com.pelepolya.designerplanner.R
 import com.pelepolya.designerplanner.data.db.models.UserRoles
 import com.pelepolya.designerplanner.databinding.FragmentSignInBinding
 import com.pelepolya.designerplanner.domain.entity.SignInUser
-import com.pelepolya.designerplanner.presentation.viewmodel.auth.SignInViewModel
+import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.auth.SignInViewModel
 
 class SignInFragment : Fragment() {
 

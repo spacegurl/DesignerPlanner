@@ -1,4 +1,4 @@
-package com.pelepolya.designerplanner
+package com.pelepolya.designerplanner.presentation.fragments.project
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.pelepolya.designerplanner.R
+import com.pelepolya.designerplanner.presentation.stateholder.adapter.ProjectPagerAdapter
 
 class ProjectTabLayoutFragment : Fragment() {
     var projectPagerAdapter: ProjectPagerAdapter? = null

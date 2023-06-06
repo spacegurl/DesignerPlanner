@@ -1,8 +1,11 @@
-package com.pelepolya.designerplanner
+package com.pelepolya.designerplanner.presentation.stateholder.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.pelepolya.designerplanner.presentation.fragments.project.ProjectAlbumFragment
+import com.pelepolya.designerplanner.presentation.fragments.project.ProjectCostListFragment
+import com.pelepolya.designerplanner.presentation.fragments.project.ProjectNotesFragment
 
 class ProjectPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {

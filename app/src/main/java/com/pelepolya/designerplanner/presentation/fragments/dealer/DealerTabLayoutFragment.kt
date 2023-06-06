@@ -1,4 +1,4 @@
-package com.pelepolya.designerplanner
+package com.pelepolya.designerplanner.presentation.fragments.dealer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.pelepolya.designerplanner.databinding.FragmentDealerTabLayoutBinding
+import com.pelepolya.designerplanner.presentation.stateholder.adapter.DealerPagerAdapter
 
 class DealerTabLayoutFragment : Fragment() {
     private var binding: FragmentDealerTabLayoutBinding? = null

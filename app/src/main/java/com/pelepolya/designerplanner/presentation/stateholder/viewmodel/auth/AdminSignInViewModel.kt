@@ -1,4 +1,4 @@
-package com.pelepolya.designerplanner.presentation.viewmodel.auth
+package com.pelepolya.designerplanner.presentation.stateholder.viewmodel.auth
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
