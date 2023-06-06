@@ -7,12 +7,10 @@ import com.pelepolya.designerplanner.data.db.DesignerPlannerDataBase
 import com.pelepolya.designerplanner.data.db.mapper.ProjectMapper
 import com.pelepolya.designerplanner.data.db.mapper.UserMapper
 import com.pelepolya.designerplanner.data.db.models.Archive
-import com.pelepolya.designerplanner.data.db.models.User
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.SignInUser
 import com.pelepolya.designerplanner.domain.entity.SignUpUser
 import com.pelepolya.designerplanner.domain.repository.Repository
-import kotlin.math.sign
 
 class RepositoryImpl(
     private val context: Context
@@ -59,6 +57,16 @@ class RepositoryImpl(
             ))
             projectDao.deleteProject(id)
         }
+    }
+
+    override fun deleteArchiveUseCase(id: Int) {
+        db.queryExecutor.execute {
+            archiveDao.deleteArchive(id)
+        }
+    }
+
+    override fun getArchiveListUseCase(): LiveData<List<ProjectNote>> {
+        return db.archiveDao().getArchiveList()
     }
 
     override fun loadProjectNoteUseCase(id: Int): LiveData<String> {

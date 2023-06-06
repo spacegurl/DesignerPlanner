@@ -46,7 +46,11 @@
         android:id="@+id/archiveFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.options.ArchiveFragment"
         android:label="ArchiveFragment"
-        tools:layout="@layout/fragment_archive" />
+        tools:layout="@layout/fragment_archive" >
+        <action
+            android:id="@+id/action_archiveFragment_to_projectTabLayoutFragment"
+            app:destination="@id/projectTabLayoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/costListFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.options.CostListFragment"

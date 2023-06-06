@@ -40,6 +40,10 @@ class MenuFragment : Fragment() {
             val action = MenuFragmentDirections.actionMenuFragmentToProjectsFragment2()
             findNavController().navigate(action)
         }
+        binding.ARCHIVEBUTTON.setOnClickListener {
+            val action = MenuFragmentDirections.actionMenuFragmentToArchiveFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
