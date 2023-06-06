@@ -6,13 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pelepolya.designerplanner.R
+import com.pelepolya.designerplanner.databinding.FragmentProjectAlbumBinding
 
 class ProjectAlbumFragment : Fragment() {
+
+    private var _binding: FragmentProjectAlbumBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_project_album, container, false)
+    ): View {
+        _binding = FragmentProjectAlbumBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
