@@ -22,8 +22,6 @@ interface Repository {
 
     fun deleteProjectUseCase(id: Int)
 
-    fun loadProjectNoteUseCase(id: Int): LiveData<String>
-
     fun saveProjectNoteUseCase(id: Int, noteBody: String)
 
     fun getProjectList(): LiveData<List<ProjectNote>>
@@ -33,4 +31,5 @@ interface Repository {
     fun getArchiveListUseCase(): LiveData<List<ProjectNote>>
 
     fun getAdminProjectsListUseCase(): LiveData<List<ProjectNote>>
+    fun adminDeleteProjectUseCase(id: Int)
 }

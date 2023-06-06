@@ -53,8 +53,8 @@ class AdminProjectsFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val item = adapter.projectList[viewHolder.adapterPosition]
-//                viewModel.deleteProject(item.id)
+                val item = adapter.projectList[viewHolder.adapterPosition]
+                viewModel.deleteProjectFromAdmin(item.id)
             }
         }
 

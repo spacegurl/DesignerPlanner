@@ -86,8 +86,10 @@ class RepositoryImpl(
         return db.projectAdminDao().getProjectList()
     }
 
-    override fun loadProjectNoteUseCase(id: Int): LiveData<String> {
-        TODO("Not yet implemented")
+    override fun adminDeleteProjectUseCase(id: Int) {
+        db.queryExecutor.execute {
+            projectAdminDao.deleteProject(id)
+        }
     }
 
     override fun saveProjectNoteUseCase(id: Int, noteBody: String) {

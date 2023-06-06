@@ -18,6 +18,11 @@ class ProjectsViewModel(application: Application) : AndroidViewModel(application
     private val addProjectUseCase = AddProjectUseCase(repository)
     private val deleteProjectUseCase = DeleteProjectUseCase(repository)
     private val deleteArchiveUseCase = DeleteArchiveUseCase(repository)
+    private val adminDeleteProjectUseCase = AdminDeleteProjectUseCase(repository)
+
+    fun deleteProjectFromAdmin(id: Int) {
+        adminDeleteProjectUseCase.invoke(id)
+    }
 
     fun deleteProject(id: Int) {
         deleteProjectUseCase.invoke(id)
