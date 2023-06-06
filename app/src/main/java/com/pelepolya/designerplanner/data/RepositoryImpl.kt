@@ -6,6 +6,7 @@ import androidx.lifecycle.MediatorLiveData
 import com.pelepolya.designerplanner.data.db.DesignerPlannerDataBase
 import com.pelepolya.designerplanner.data.db.mapper.ProjectMapper
 import com.pelepolya.designerplanner.data.db.mapper.UserMapper
+import com.pelepolya.designerplanner.data.db.models.Archive
 import com.pelepolya.designerplanner.data.db.models.User
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.SignInUser
@@ -20,6 +21,7 @@ class RepositoryImpl(
     private val db = DesignerPlannerDataBase.getDatabase(context)
     private val userDao = db.userDao()
     private val projectDao = db.projectDao()
+    private val archiveDao = db.archiveDao()
 
 
     override fun signInUseCase(signInUser: SignInUser): LiveData<Boolean> {
@@ -47,7 +49,16 @@ class RepositoryImpl(
     }
 
     override fun deleteProjectUseCase(id: Int) {
-        TODO("Not yet implemented")
+        db.queryExecutor.execute {
+            val item = projectDao.getProjectById(id)
+            archiveDao.inertArchive(Archive(
+                item.id,
+                item.title,
+                item.body,
+                item.status
+            ))
+            projectDao.deleteProject(id)
+        }
     }
 
     override fun loadProjectNoteUseCase(id: Int): LiveData<String> {

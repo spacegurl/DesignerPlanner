@@ -5,7 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import com.pelepolya.designerplanner.data.RepositoryImpl
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.ProjectStatus
+import com.pelepolya.designerplanner.domain.entity.Status
 import com.pelepolya.designerplanner.domain.use_case.projects.AddProjectUseCase
+import com.pelepolya.designerplanner.domain.use_case.projects.DeleteProjectUseCase
 import com.pelepolya.designerplanner.domain.use_case.projects.GetProjectListUseCase
 
 class ProjectsViewModel(application: Application) : AndroidViewModel(application) {
@@ -14,6 +16,12 @@ class ProjectsViewModel(application: Application) : AndroidViewModel(application
     val projectListLiveData = GetProjectListUseCase(repository).invoke()
 
     private val addProjectUseCase = AddProjectUseCase(repository)
+    private val deleteProjectUseCase = DeleteProjectUseCase(repository)
+
+
+    fun deleteProject(id: Int) {
+        deleteProjectUseCase.invoke(id)
+    }
 
     fun addProject(projectName: String) {
         addProjectUseCase.invoke(
@@ -21,7 +29,7 @@ class ProjectsViewModel(application: Application) : AndroidViewModel(application
                 0,
                 projectName,
                 "",
-                ProjectStatus.VISIBLE
+                Status.VISIBLE
             )
         )
     }

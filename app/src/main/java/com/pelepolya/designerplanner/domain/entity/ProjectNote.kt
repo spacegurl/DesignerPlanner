@@ -4,5 +4,5 @@ data class ProjectNote(
     val id: Int,
     val title: String,
     val body: String,
-    val status: ProjectStatus
+    val status: Status
 )

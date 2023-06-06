@@ -2,14 +2,22 @@ package com.pelepolya.designerplanner.presentation.stateholder.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pelepolya.designerplanner.databinding.ItemProjectBinding
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
 import com.pelepolya.designerplanner.domain.entity.ProjectStatus
+import com.pelepolya.designerplanner.domain.entity.Status
 
-class ProjectRvListAdapter(
-    private val projectList: List<ProjectNote>
-) : RecyclerView.Adapter<ProjectRvListAdapter.ViewHolder>() {
+class ProjectRvListAdapter : RecyclerView.Adapter<ProjectRvListAdapter.ViewHolder>() {
+
+    var projectList = listOf<ProjectNote>()
+        set(value) {
+            val callback = ProjectListDiffCallback(projectList, value)
+            val diffResult = DiffUtil.calculateDiff(callback)
+            diffResult.dispatchUpdatesTo(this)
+            field = value
+        }
 
     var onProjectListClickListener: ((Int, String) -> Unit)? = null
 
@@ -30,7 +38,7 @@ class ProjectRvListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = projectList[position]
         with(holder) {
-            if (item.status == ProjectStatus.VISIBLE) {
+            if (item.status == Status.VISIBLE) {
                 binding.textProjectName.text = item.title
                 binding.root.setOnClickListener {
                     onProjectListClickListener?.invoke(position, item.title)
@@ -38,5 +46,4 @@ class ProjectRvListAdapter(
             }
         }
     }
-
 }

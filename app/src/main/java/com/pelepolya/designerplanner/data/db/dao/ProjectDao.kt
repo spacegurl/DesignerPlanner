@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.pelepolya.designerplanner.data.db.models.Project
+import com.pelepolya.designerplanner.domain.entity.Status
 
 @Dao
 interface ProjectDao {
@@ -17,4 +18,10 @@ interface ProjectDao {
 
     @Query("UPDATE Project SET body = :body WHERE id = :id")
     fun editNoteById(id: Int, body: String)
+
+    @Query("DELETE FROM Project WHERE id = :id")
+    fun deleteProject(id: Int)
+
+    @Query("SELECT * FROM Project WHERE id = :id")
+    fun getProjectById(id: Int): Project
 }

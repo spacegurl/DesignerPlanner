@@ -10,6 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.pelepolya.designerplanner.databinding.FragmentProjectsBinding
 import com.pelepolya.designerplanner.presentation.stateholder.adapter.ProjectRvListAdapter
 import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.options.ProjectsViewModel
@@ -20,6 +22,8 @@ class ProjectsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ProjectsViewModel by viewModels()
+
+    private var adapter: ProjectRvListAdapter = ProjectRvListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,18 +37,30 @@ class ProjectsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val callback = object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val item = adapter.projectList[viewHolder.adapterPosition]
+                viewModel.deleteProject(item.id)
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
+
         viewModel.projectListLiveData.observe(viewLifecycleOwner) {
             it.let {
-                val adapter = ProjectRvListAdapter(it)
-                adapter.onProjectListClickListener = { pos, title ->
-                    val action =
-                        ProjectsFragmentDirections.actionProjectsFragment2ToProjectTabLayoutFragment(
-                            pos,
-                            title
-                        )
-                    findNavController().navigate(action)
-                }
-                binding.recyclerView.adapter = adapter
+                adapter.projectList = it
             }
         }
         binding.floatingActionButtonAdd.setOnClickListener {
@@ -67,6 +83,17 @@ class ProjectsFragment : Fragment() {
             val dialog = builder.create()
             dialog.show()
         }
+        adapter.onProjectListClickListener = { pos, title ->
+            val action =
+                ProjectsFragmentDirections.actionProjectsFragment2ToProjectTabLayoutFragment(
+                    pos,
+                    title
+                )
+            findNavController().navigate(action)
+        }
+
+        binding.recyclerView.adapter = adapter
+
     }
 
     override fun onDestroyView() {

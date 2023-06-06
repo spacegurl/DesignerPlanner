@@ -34,7 +34,7 @@ class ProjectNotesFragment : Fragment() {
         ViewModelProvider(this, viewModelFactory)[ProjectNotesViewModel::class.java]
     }
 
-    private var projectPosition = 0
+    private var projectPosition = -1
     private lateinit var note: ProjectNote
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,9 +57,11 @@ class ProjectNotesFragment : Fragment() {
         binding.NoteContent.setStylesBar(binding.BottomBar)
 
         viewModel.projectListLiveData.observe(viewLifecycleOwner) {
-            note = it[projectPosition]
-            if (::note.isInitialized) {
-                viewModel.loadProjectNote()
+            if (projectPosition > 0) {
+                note = it[projectPosition]
+                if (::note.isInitialized) {
+                    viewModel.loadProjectNote()
+                }
             }
         }
 
@@ -68,22 +70,14 @@ class ProjectNotesFragment : Fragment() {
         }
         binding.NoteContent.setOnFocusChangeListener { v, hasFocus ->
             if (!hasFocus) {
-                viewModel.saveProjectNote(note.id - 1, binding.NoteContent.text.toString())
+                viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
             }
         }
     }
 
     override fun onPause() {
         super.onPause()
-        viewModel.saveProjectNote(note.id - 1, binding.NoteContent.text.toString())
-        Log.d("myLogs", "hehehehe")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.saveProjectNote(note.id - 1, binding.NoteContent.text.toString())
-        Log.d("myLogs", "hehehehe")
-        _binding = null
+        viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
     }
 
     private fun parseArgs() {
