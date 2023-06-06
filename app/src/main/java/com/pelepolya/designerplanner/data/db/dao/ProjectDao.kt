@@ -14,4 +14,7 @@ interface ProjectDao {
 
     @Insert
     fun inertProject(project: Project)
+
+    @Query("UPDATE Project SET body = :body WHERE id = :id")
+    fun editNoteById(id: Int, body: String)
 }

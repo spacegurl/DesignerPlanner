@@ -15,6 +15,7 @@ object ProjectMapper {
 
     fun mapDbModelToEntity(el: Project): ProjectNote {
         return ProjectNote(
+            el.id,
             el.title,
             el.body,
             ProjectStatus.valueOf(el.status),

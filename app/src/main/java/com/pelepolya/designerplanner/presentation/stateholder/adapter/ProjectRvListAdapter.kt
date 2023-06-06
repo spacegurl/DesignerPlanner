@@ -11,6 +11,8 @@ class ProjectRvListAdapter(
     private val projectList: List<ProjectNote>
 ) : RecyclerView.Adapter<ProjectRvListAdapter.ViewHolder>() {
 
+    var onProjectListClickListener: ((Int, String) -> Unit)? = null
+
     inner class ViewHolder(val binding: ItemProjectBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -30,6 +32,9 @@ class ProjectRvListAdapter(
         with(holder) {
             if (item.status == ProjectStatus.VISIBLE) {
                 binding.textProjectName.text = item.title
+                binding.root.setOnClickListener {
+                    onProjectListClickListener?.invoke(position, item.title)
+                }
             }
         }
     }

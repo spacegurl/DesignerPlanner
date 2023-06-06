@@ -7,7 +7,7 @@ class SaveProjectNoteUseCase(
     private val repository: Repository
 ) {
 
-    operator fun invoke(id: Int) {
-        repository.saveProjectNoteUseCase(id = id)
+    operator fun invoke(id: Int, noteBody: String) {
+        repository.saveProjectNoteUseCase(id = id, noteBody = noteBody)
     }
 }

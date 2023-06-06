@@ -24,7 +24,7 @@ interface Repository {
 
     fun loadProjectNoteUseCase(id: Int): LiveData<String>
 
-    fun saveProjectNoteUseCase(id: Int)
+    fun saveProjectNoteUseCase(id: Int, noteBody: String)
 
     fun getProjectList(): LiveData<List<ProjectNote>>
 }

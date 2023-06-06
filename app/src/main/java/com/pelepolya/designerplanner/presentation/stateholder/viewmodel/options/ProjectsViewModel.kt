@@ -18,6 +18,7 @@ class ProjectsViewModel(application: Application) : AndroidViewModel(application
     fun addProject(projectName: String) {
         addProjectUseCase.invoke(
             projectNote = ProjectNote(
+                0,
                 projectName,
                 "",
                 ProjectStatus.VISIBLE

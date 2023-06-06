@@ -24,6 +24,8 @@
         android:background="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorColor="@color/green"
+        app:tabTextColor="@color/green"
         app:layout_constraintTop_toBottomOf="@+id/project_name">
 
         <com.google.android.material.tabs.TabItem

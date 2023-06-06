@@ -54,8 +54,10 @@ class RepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override fun saveProjectNoteUseCase(id: Int) {
-        TODO("Not yet implemented")
+    override fun saveProjectNoteUseCase(id: Int, noteBody: String) {
+        db.queryExecutor.execute {
+            projectDao.editNoteById(id, noteBody)
+        }
     }
 
     override fun getProjectList(): LiveData<List<ProjectNote>> {

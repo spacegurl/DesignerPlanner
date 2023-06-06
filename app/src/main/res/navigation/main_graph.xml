@@ -105,5 +105,12 @@
         android:id="@+id/projectTabLayoutFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.project.ProjectTabLayoutFragment"
         android:label="ProjectTabLayoutFragment"
-        tools:layout="@layout/fragment_project_tab_layout" />
+        tools:layout="@layout/fragment_project_tab_layout" >
+        <argument
+            android:name="projectPosition"
+            app:argType="integer" />
+        <argument
+            android:name="projectName"
+            app:argType="string" />
+    </fragment>
 </navigation>

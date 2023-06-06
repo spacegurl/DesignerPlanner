@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.pelepolya.designerplanner.databinding.FragmentProjectsBinding
 import com.pelepolya.designerplanner.presentation.stateholder.adapter.ProjectRvListAdapter
 import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.options.ProjectsViewModel
@@ -35,6 +36,14 @@ class ProjectsFragment : Fragment() {
         viewModel.projectListLiveData.observe(viewLifecycleOwner) {
             it.let {
                 val adapter = ProjectRvListAdapter(it)
+                adapter.onProjectListClickListener = { pos, title ->
+                    val action =
+                        ProjectsFragmentDirections.actionProjectsFragment2ToProjectTabLayoutFragment(
+                            pos,
+                            title
+                        )
+                    findNavController().navigate(action)
+                }
                 binding.recyclerView.adapter = adapter
             }
         }
