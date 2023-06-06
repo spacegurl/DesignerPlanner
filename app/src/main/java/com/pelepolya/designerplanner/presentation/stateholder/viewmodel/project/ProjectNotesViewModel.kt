@@ -26,7 +26,8 @@ class ProjectNotesViewModel(application: Application, private val projectPositio
 
     fun saveProjectNote(id: Int, noteBody: String) {
         if (projectListLiveData.value != null) {
-            saveProjectNoteUseCase.invoke(projectListLiveData.value!![projectPosition].id, noteBody)
+            if (projectPosition < projectListLiveData.value!!.size)
+                saveProjectNoteUseCase.invoke(projectListLiveData.value!![projectPosition].id, noteBody)
         }
     }
 }
