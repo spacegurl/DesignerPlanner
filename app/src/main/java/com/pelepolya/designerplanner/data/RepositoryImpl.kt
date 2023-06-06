@@ -2,7 +2,9 @@ package com.pelepolya.designerplanner.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import com.pelepolya.designerplanner.data.db.DesignerPlannerDataBase
+import com.pelepolya.designerplanner.data.db.mapper.ProjectMapper
 import com.pelepolya.designerplanner.data.db.mapper.UserMapper
 import com.pelepolya.designerplanner.data.db.models.User
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
@@ -17,6 +19,7 @@ class RepositoryImpl(
 
     private val db = DesignerPlannerDataBase.getDatabase(context)
     private val userDao = db.userDao()
+    private val projectDao = db.projectDao()
 
 
     override fun signInUseCase(signInUser: SignInUser): LiveData<Boolean> {
@@ -38,7 +41,9 @@ class RepositoryImpl(
     }
 
     override fun addProjectUseCase(projectNote: ProjectNote) {
-        TODO("Not yet implemented")
+        db.queryExecutor.execute {
+            projectDao.inertProject(ProjectMapper.mapEntityToDbModel(projectNote))
+        }
     }
 
     override fun deleteProjectUseCase(id: Int) {
@@ -51,5 +56,13 @@ class RepositoryImpl(
 
     override fun saveProjectNoteUseCase(id: Int) {
         TODO("Not yet implemented")
+    }
+
+    override fun getProjectList(): LiveData<List<ProjectNote>> {
+        return MediatorLiveData<List<ProjectNote>>().apply {
+            addSource(projectDao.getProjectList()) {
+                value = ProjectMapper.mapDbModelListToEntityList(it)
+            }
+        }
     }
 }

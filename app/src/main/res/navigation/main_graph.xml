@@ -61,7 +61,11 @@
         android:id="@+id/projectsFragment2"
         android:name="com.pelepolya.designerplanner.presentation.fragments.options.ProjectsFragment"
         android:label="ProjectsFragment"
-        tools:layout="@layout/fragment_projects" />
+        tools:layout="@layout/fragment_projects" >
+        <action
+            android:id="@+id/action_projectsFragment2_to_projectTabLayoutFragment"
+            app:destination="@id/projectTabLayoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminSignInFragment2"
         android:name="com.pelepolya.designerplanner.presentation.fragments.auth.AdminSignInFragment"
@@ -97,4 +101,9 @@
             android:id="@+id/action_signInFragment2_to_signUpFragment2"
             app:destination="@id/signUpFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/projectTabLayoutFragment"
+        android:name="com.pelepolya.designerplanner.presentation.fragments.project.ProjectTabLayoutFragment"
+        android:label="ProjectTabLayoutFragment"
+        tools:layout="@layout/fragment_project_tab_layout" />
 </navigation>

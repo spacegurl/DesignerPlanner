@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.pelepolya.designerplanner.data.db.models.UserRoles
 import com.pelepolya.designerplanner.databinding.FragmentMenuBinding
 import com.pelepolya.designerplanner.presentation.MainActivity
@@ -35,8 +36,12 @@ class MenuFragment : Fragment() {
         binding.logout.setOnClickListener {
             logOut()
         }
+        binding.PROJECTSBUTTON.setOnClickListener {
+            val action = MenuFragmentDirections.actionMenuFragmentToProjectsFragment2()
+            findNavController().navigate(action)
+        }
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

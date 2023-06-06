@@ -13,17 +13,18 @@ interface Repository {
 
     fun signUpUseCase(signUpUser: SignUpUser)
 
-    fun adminSignInUseCase(signInUser: SignInUser) : LiveData<Boolean>
+    fun adminSignInUseCase(signInUser: SignInUser): LiveData<Boolean>
 
     fun logOutUseCase(phone: String)
-
 
 
     fun addProjectUseCase(projectNote: ProjectNote)
 
     fun deleteProjectUseCase(id: Int)
 
-    fun loadProjectNoteUseCase(id: Int) : LiveData<String>
+    fun loadProjectNoteUseCase(id: Int): LiveData<String>
 
     fun saveProjectNoteUseCase(id: Int)
+
+    fun getProjectList(): LiveData<List<ProjectNote>>
 }
