@@ -1,5 +1,7 @@
 package com.pelepolya.designerplanner.presentation.fragments.options
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.pelepolya.designerplanner.data.db.models.UserRoles
 import com.pelepolya.designerplanner.databinding.FragmentAdminProjectsBinding
+import com.pelepolya.designerplanner.presentation.MainActivity
 import com.pelepolya.designerplanner.presentation.fragments.auth.AdminSignInFragmentDirections
+import com.pelepolya.designerplanner.presentation.fragments.auth.SignInFragment
 import com.pelepolya.designerplanner.presentation.stateholder.adapter.ProjectRvListAdapter
 import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.options.ProjectsViewModel
 
@@ -72,6 +77,31 @@ class AdminProjectsFragment : Fragment() {
 
         binding.recyclerView.adapter = adapter
 
+        binding.logout.setOnClickListener {
+            logOut()
+        }
+        binding.account.setOnClickListener {
+            logOut()
+        }
+    }
+
+    private fun logOut() {
+        val sharedPrefWrite = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPrefWrite.edit()
+        editor.putString(
+            SignInFragment.AUTH_SESSION,
+            ""
+        )
+        editor.putString(
+            SignInFragment.AUTH_ROLE,
+            UserRoles.NONE.name
+        )
+        editor.apply()
+
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NO_HISTORY
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     override fun onDestroyView() {
