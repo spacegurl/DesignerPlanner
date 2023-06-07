@@ -1,22 +1,19 @@
 package com.pelepolya.designerplanner.presentation.fragments.project
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.pelepolya.designerplanner.R
 import com.pelepolya.designerplanner.databinding.FragmentProjectNotesBinding
 import com.pelepolya.designerplanner.domain.entity.ProjectNote
-import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.options.ProjectsViewModel
 import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.project.ProjectNotesViewModel
 import com.pelepolya.designerplanner.presentation.stateholder.viewmodel.project.ProjectNotesViewModelFactory
+
 
 class ProjectNotesFragment : Fragment() {
 
@@ -74,6 +71,20 @@ class ProjectNotesFragment : Fragment() {
                     viewModel.saveProjectNote(note.id, binding.NoteContent.text.toString())
                 }
             }
+        }
+
+        val shareBtn = view.findViewById<ImageView>(R.id.share_btn)
+        shareBtn.setOnClickListener {
+            val content = binding.NoteContent.text.toString()
+            val textIntent = Intent(Intent.ACTION_SEND)
+            textIntent.type = "text/plain"
+            textIntent.putExtra(
+                Intent.EXTRA_SUBJECT,
+                "This Is The Way of " + getString(R.string.app_name)
+            )
+            textIntent.putExtra(Intent.EXTRA_EMAIL, "sheshukov_leonid@edu.mirea.ru")
+            textIntent.putExtra(Intent.EXTRA_TEXT, content)
+            requireActivity().startActivity(textIntent)
         }
     }
 
