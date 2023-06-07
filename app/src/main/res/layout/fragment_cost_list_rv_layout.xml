@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Товар"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Описание"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/link_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Ссылка"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/dealer_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Поставщик"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/quantity_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Кол-во"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/price_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Цена"
+                />
+
+            <EditText
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_fill"
+                android:background="@drawable/grid"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="Общая стоимость"
+                />
+
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>
