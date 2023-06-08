@@ -44,6 +44,10 @@ class MenuFragment : Fragment() {
             val action = MenuFragmentDirections.actionMenuFragmentToArchiveFragment()
             findNavController().navigate(action)
         }
+        binding.COSTLISTBUTTON.setOnClickListener {
+            val action = MenuFragmentDirections.actionMenuFragmentToCostListFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

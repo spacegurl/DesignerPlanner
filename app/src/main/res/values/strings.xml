@@ -38,4 +38,5 @@
     <string name="note">Note</string>
     <string name="open_gallery">Открыть галерею</string>
     <string name="open_camera">Открыть камеру</string>
+    <string name="pattern">Шаблон</string>
 </resources>

@@ -59,7 +59,11 @@
         android:id="@+id/costListFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.options.CostListFragment"
         android:label="CostListFragment"
-        tools:layout="@layout/fragment_cost_list" />
+        tools:layout="@layout/fragment_cost_list" >
+        <action
+            android:id="@+id/action_costListFragment_to_costListTabLayoutFragment2"
+            app:destination="@id/costListTabLayoutFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/dealersFragment"
         android:name="com.pelepolya.designerplanner.presentation.fragments.options.DealersFragment"
@@ -129,4 +133,12 @@
             android:id="@+id/action_adminProjectsFragment_to_projectTabLayoutFragment"
             app:destination="@id/projectTabLayoutFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentCostListTableLayout"
+        android:name="com.pelepolya.designerplanner.presentation.fragments.cost.CostListTableLayoutFragment"
+        android:label="FragmentCostListTableLayout" />
+    <fragment
+        android:id="@+id/costListTabLayoutFragment2"
+        android:name="com.pelepolya.designerplanner.presentation.fragments.cost.CostListTabLayoutFragment"
+        android:label="CostListTabLayoutFragment" />
 </navigation>
